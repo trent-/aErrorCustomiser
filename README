@@ -1,2 +1,1 @@
-aErrorCustomiser
-================
+An Apex Application to Manage Errors, using the recent apex_error API
