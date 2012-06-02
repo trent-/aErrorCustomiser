@@ -25,3 +25,7 @@ alter table "TS_ERROR_CODE" add
 constraint "TS_ERROR_CODE_UK1" 
 unique ("CODE")
 /   
+
+alter table "TS_ERROR_CODE" add
+("SOURCE_URL" VARCHAR2(1000) NOT NULL)
+/   
