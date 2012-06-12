@@ -14,6 +14,38 @@ begin
       
     l_constraint_name := apex_error.extract_constraint_name(p_error);
     
+    if l_constraint_name = NULL THEN
+	--NOT NULL constraints don't display the constraint name in the error, find another way
+	declare
+		l_cons_split APEX_APPLICATION_GLOBAL.VC_ARR2;
+		l_owner user_constraints.owner%type;
+		l_table_name user_constraints.table_name%type;
+		l_column_name user_cons_columns.column_name%type;
+		l_table_column varchar2(400);
+	BEGIN
+    
+		--get the section enclodes in parenthesis
+		l_table_column := regexp_substr(p_error.ora_sqlerrm, '\([^)]*\)');
+		--remove parenthesis and quotes
+		l_table_column := regexp_replace(l_table_column, '[(")]');
+		--split the data by period
+		l_cons_split := apex_util.string_to_table(l_table_column, '.');
+		--determine the constraint name by querying user_constraints
+		l_table_name := l_cons_split(l_cons_split.COUNT-2);
+		l_table_name := l_cons_split(l_cons_split.COUNT-1);
+		l_column_name := l_cons_split(l_cons_split.COUNT);
+		
+		select constraint_name into l_constraint_name
+		from user_constraints uc, user_cons_columns ucc
+		where uc.constraint_name = ucc.constraint_name
+		and uc.owner = ucc.owner
+		and uc.table_name = l_table_name
+		and ucc.column_name = l_column_name
+		and ts_get_search_condition(uc.constraint_name, uc.owner) like '%IS NOT NULL%'
+
+	END;
+    END IF;
+    
     select count(*) into l_constraint_count
     from ts_constraint_Error
     where constraint_name = l_constraint_name;
