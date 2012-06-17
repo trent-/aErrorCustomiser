@@ -12,7 +12,7 @@ prompt  APPLICATION 100 - aErrorCustomiser
 -- Application Export:
 --   Application:     100
 --   Name:            aErrorCustomiser
---   Date and Time:   19:38 Saturday June 16, 2012
+--   Date and Time:   19:51 Saturday June 16, 2012
 --   Exported By:     TRENT
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -146,7 +146,7 @@ wwv_flow_api.create_flow(
   p_default_region_template=> 2143724083550587 + wwv_flow_api.g_id_offset,
   p_error_template=> 2135428826550574 + wwv_flow_api.g_id_offset,
   p_page_protection_enabled_y_n=> 'Y',
-  p_checksum_salt_last_reset => '20120616193853',
+  p_checksum_salt_last_reset => '20120616195155',
   p_max_session_length_sec=> null,
   p_compatibility_mode=> '4.1',
   p_home_link=> 'f?p=&APP_ID.:4:&SESSION.',
@@ -179,6 +179,7 @@ wwv_flow_api.create_flow(
   p_vpd=> '',
   p_vpd_teardown_code=> '',
   p_csv_encoding=> 'Y',
+  p_error_handling_function=> 'ts_get_error',
   p_default_error_display_loc=> 'INLINE_WITH_FIELD_AND_NOTIFICATION',
   p_theme_id => 1,
   p_default_label_template => 2154707302550608 + wwv_flow_api.g_id_offset,
@@ -195,7 +196,7 @@ wwv_flow_api.create_flow(
   p_default_listr_template => 2141912769550585 + wwv_flow_api.g_id_offset,
   p_default_irr_template => 2142812752550586 + wwv_flow_api.g_id_offset,
   p_last_updated_by => 'TRENT',
-  p_last_upd_yyyymmddhh24miss=> '20120616193853',
+  p_last_upd_yyyymmddhh24miss=> '20120616195155',
   p_required_roles=> wwv_flow_utilities.string_to_table2(''));
  
  
@@ -1479,7 +1480,6 @@ wwv_flow_api.create_page (
  ,p_step_sub_title_type => 'TEXT_WITH_SUBSTITUTIONS'
  ,p_first_item => 'NO_FIRST_ITEM'
  ,p_include_apex_css_js_yn => 'Y'
- ,p_error_handling_function => 'ts_get_error'
  ,p_autocomplete_on_off => 'ON'
  ,p_javascript_code => 
 'var htmldb_delete_message=''"DELETE_CONFIRM_MSG"'';'
@@ -1491,7 +1491,7 @@ wwv_flow_api.create_page (
  ,p_help_text => 
 'No help is available for this page.'
  ,p_last_updated_by => 'TRENT'
- ,p_last_upd_yyyymmddhh24miss => '20120616184441'
+ ,p_last_upd_yyyymmddhh24miss => '20120616194956'
   );
 null;
  
@@ -2045,7 +2045,6 @@ wwv_flow_api.create_page (
  ,p_step_sub_title_type => 'TEXT_WITH_SUBSTITUTIONS'
  ,p_first_item => 'NO_FIRST_ITEM'
  ,p_include_apex_css_js_yn => 'Y'
- ,p_error_handling_function => 'ts_get_error'
  ,p_autocomplete_on_off => 'ON'
  ,p_javascript_code => 
 'var htmldb_delete_message=''"DELETE_CONFIRM_MSG"'';'
@@ -2057,7 +2056,7 @@ wwv_flow_api.create_page (
  ,p_help_text => 
 'No help is available for this page.'
  ,p_last_updated_by => 'TRENT'
- ,p_last_upd_yyyymmddhh24miss => '20120616190003'
+ ,p_last_upd_yyyymmddhh24miss => '20120616195138'
   );
 null;
  
