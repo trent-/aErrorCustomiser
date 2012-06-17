@@ -1,1 +1,10 @@
 An Apex Application to Manage Errors, using the recent apex_error API
+
+==Installation==
+
+* Download the file f100.sql
+* Import into your workspace
+* Install supporting objects
+* Add customised error messages for constraints
+* Set at a page level, or global level, the error checking function to: ts_get_error
+* Profit
