@@ -8,3 +8,7 @@ An Apex Application to Manage Errors, using the recent apex_error API
 * Add customised error messages for constraints
 * Set at a page level, or global level, the error checking function to: ts_get_error
 * Profit
+
+==Demonstration==
+
+http://apex.oracle.com/pls/apex/f?p=50984:
